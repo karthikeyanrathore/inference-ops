@@ -16,3 +16,27 @@ In the end we will have working model for 2fa which we can extend in our other p
 
 ##  UML (version 1.1)
 ![](https://github.com/karthikeyanrathore/inference-ops/blob/main/inference_ops/assets/inference-ops_version_1.1.png)
+
+
+## How to see changes in models.py?
+```bash
+./manage.py makemigrations
+
+./manage.py migrate
+
+./manage.py shell
+```
+
+shell cmds
+```python
+from mgmt.models import Organization, Member
+org = Organization()
+org.name = "twitter"
+org.email = "support@twitter.com"
+org.address = "USA"
+org.website = "www.twitter.com"
+
+
+from mgmt.models import Organization, Member
+x = Organization.objects.all()
+```
