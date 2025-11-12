@@ -1,10 +1,10 @@
-## Access Policy Plugin
+## Inference Ops
 
-> template for future django projects with UI web user auth + 2FA.
+> template for future django projects with web user auth + 2FA.
 
-Aim of this project is to understand how user authentication and 2FA works with django and django-rest-framework.
+Aim of this project is to understand how user authentication and 2FA works with django and django-rest-framework and "maybe" include point 1.01
 
-To do List:
+(old) To do List:
 * first look into [account/ healthcheck github repo](https://github.com/healthchecks/healthchecks/tree/master/hc/accounts)
 * implement your version of it. which includes 2FA
 * after that check how same functions works in djano-rest-framework. for refernce checkout: https://github.com/pretix/pretix/blob/master/src/pretix/control/views/auth.py
@@ -12,5 +12,4 @@ To do List:
 
 In the end we will have working model for 2fa which we can extend in our other projects.
 
-
-
+1.01 After this it is finish, we can make interal tool for an organization who want to give access to LLM models based on there role in the project. call it "inference".
