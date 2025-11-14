@@ -33,7 +33,7 @@ class Organization(TimeStampMixin):
         INACTIVE = "INA", _("Inactive")
         SUSPENDED = "SUS", _("Suspended")
 
-    org_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True, db_column="org_id")
     name = models.CharField(max_length=30)
     email = models.CharField(max_length=30)
     address = models.CharField(max_length=90)
@@ -41,13 +41,27 @@ class Organization(TimeStampMixin):
     status = models.CharField(max_length=3, choices=ORG_STATUS, default=ORG_STATUS.ACTIVE)
 
     def __str__(self):
-        ret = f"<org_id: {self.org_id} \
+        ret = f"<id: {self.id} \
               name: {self.name} \
               email: {self.email}>" 
         return ret
 
 class Project(TimeStampMixin):
-    pass
+    class Meta:
+        db_table = "project"
+
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=30)
+    licence = models.CharField(max_length=30)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+
+    def __str__(self):
+        ret = f"<id: {self.id}>"
+        ret += f"<title: {self.title}>"
+        ret += f"<start_date: {self.start_date}>"
+        ret += f"end_date: {self.end_date}"
+        return ret
 
 class ProjectMember(TimeStampMixin):
     pass
@@ -56,10 +70,27 @@ class Metric(TimeStampMixin):
     pass
 
 class Llm(TimeStampMixin):
-    pass
+    class Meta:
+        db_table = "llm"
+
+    id = models.AutoField(primary_key=True)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    provider = models.CharField(max_length=30)
+    _model = models.CharField(max_length=30)
+    version = models.CharField(max_length=30)
+    apikey = models.CharField(max_length=100)
+
+    def __str__(self):
+        ret = f"<id: {self.id}>"
+        ret += f"<provider: {self.provider}>"
+        ret += f"<_model: {self._model}>"
+        ret += f"<version: {self.version}>"
+        return ret
+
 
 class PromptTemplate(TimeStampMixin):
     pass
+
 
 class Workflow(TimeStampMixin):
     pass

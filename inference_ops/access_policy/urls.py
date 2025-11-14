@@ -21,5 +21,6 @@ from mgmt import views as mgmt_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mgmt/healthcheck/', mgmt_views.HealthCheck.as_view())
+    path('manage/healthcheck/', mgmt_views.HealthCheck.as_view()),
+    path('manage/organization/create', mgmt_views.CreateOrganization.as_view()),
 ]
