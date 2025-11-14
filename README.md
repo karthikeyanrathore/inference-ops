@@ -13,7 +13,7 @@ Aim of this project is to understand how user authentication and 2FA works with 
 In the end we will have working model for 2fa which we can extend in our other projects.
 
 ### Remark 1.01
-After this is finished, we can make interal tool for an organization who want to give access to LLM models based on there role in the project. call it "inference".
+After this is finished, we can make internal tool for an organization who want to give access to LLM models based on there role in the project. call it "inference".
 
 ##  UML (version 1.1)
 ![](https://github.com/karthikeyanrathore/inference-ops/blob/main/inference_ops/assets/inference-ops_version_1.1.png)
