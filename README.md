@@ -12,7 +12,7 @@ Aim of this project is to understand how user authentication and 2FA works with 
 
 In the end we will have working model for 2fa which we can extend in our other projects.
 
-Remark 1.01
+### Remark 1.01
 After this is finished, we can make interal tool for an organization who want to give access to LLM models based on there role in the project. call it "inference".
 
 ##  UML (version 1.1)
@@ -25,6 +25,7 @@ first, you need to spin up postgres DB docker service.
 cd inference_ops && docker-compose up
 ```
 
+second, apply migrations to database
 ```bash
 ./manage.py makemigrations
 
@@ -33,7 +34,7 @@ cd inference_ops && docker-compose up
 ./manage.py shell
 ```
 
-shell cmds
+shell cmds to test (optional)
 ```python
 from mgmt.models import Organization, Member
 org = Organization()
